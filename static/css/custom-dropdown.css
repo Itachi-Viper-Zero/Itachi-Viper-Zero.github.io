@@ -1,0 +1,51 @@
+/* Aurora 下拉菜单高级美化 - 玻璃态 + 辉光 + 动画 */
+.dropdown-menu,
+.menu-children,
+.navbar-dropdown,
+[role="menu"],
+.menu-item .children {
+  background: rgba(15, 10, 35, 0.92) !important;
+  backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(165, 0, 255, 0.45) !important;
+  box-shadow: 0 25px 50px -12px rgb(165 0 255 / 0.3) !important;
+  border-radius: 20px !important;
+  padding: 6px 0 !important;
+  overflow: hidden;
+  animation: dropdownPop 0.3s ease forwards;
+}
+
+@keyframes dropdownPop {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-menu a,
+.menu-children a,
+.navbar-dropdown a {
+  text-transform: none !important;        /* 取消全大写 */
+  font-weight: 500 !important;
+  padding: 14px 28px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: #e0d4ff !important;
+}
+
+.dropdown-menu a:hover,
+.menu-children a:hover,
+.navbar-dropdown a:hover {
+  background: rgba(165, 0, 255, 0.18) !important;
+  color: #ffffff !important;
+  padding-left: 36px !important;
+  box-shadow: inset 5px 0 0 #a500ff;
+}
+
+/* 父菜单加小箭头动画 */
+.menu-item.has-children::after {
+  content: " ▼";
+  font-size: 10px;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+.menu-item.has-children:hover::after {
+  transform: rotate(180deg);
+}
